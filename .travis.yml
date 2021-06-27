@@ -17,6 +17,19 @@ matrix:
       env:
         - RUN_COVERAGE=false
         - MAKE_SECP=true
+    - os: osx
+      language: shell # 'language: python' is an error on Travis CI macOS
+      addons:
+        homebrew:
+          packages:
+            - coreutils
+            - pyenv
+            - gettext
+      script:
+        - function keep_alive() { while true; do echo -en "\a"; sleep 60; done }
+        - keep_alive &
+        - cd contrib/osx && ./make_osx
+        - kill %keep_alive
 install:
   - if [ "$MAKE_SECP" == true ];
     then
