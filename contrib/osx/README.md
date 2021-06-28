@@ -21,8 +21,8 @@ The above ensures that you pull in the zbar, secp256k1, and other submodules.
 With [brew](https://brew.sh) installed, run
 
 ```shell
-brew install coreutils
-brew install pyenv
+brew update
+brew install coreutils gettext pyenv
 ```
 
 Alternatively, with [macports](https://www.macports.org) installed, run
